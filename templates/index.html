@@ -36,6 +36,9 @@ div{
    <div class="col-md-12">
     <h1><a href="/">Toptweets</a></h1>
     <p>Input Twitter ID</p>
+    {% if user_id %}
+        <p>{{user_id}}</p>
+    {% endif %}
     <form class="form-inline" method="post">
        <div class="form-group">
           <label class="sr-only" for="user_id"></label>
