@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, logging, Response, redirect, 
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ["GET" , "POST"])
 def index():
-    return render_template('index.html')
+   if request.method == 'POST':
+       return render_template('index.html')
+   else:
+       return render_template('index.html')
 
 app.run(host="localhost")
