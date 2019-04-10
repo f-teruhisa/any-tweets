@@ -45,5 +45,25 @@ def index():
    else:
        return render_template('index.html')
 
+# Gettting Tweets data(type of DataFrame[pandas])
+def get_tweets_df(user_id):
+   tweets_df = pd.DataFrame(columns=columns)  # 1
+   for tweet in tweepy.Cursor(api.user_timeline, screen_name=user_id, exclude_replies=True).items():  # 2
+       try:
+           if not "RT @" in tweet.text:  # 3
+               se = pd.Series([  # 4
+                   tweet.id,
+                   tweet.created_at,
+                   tweet.text.replace('\n', ''),
+                   tweet.favorite_count,
+                   tweet.retweet_count
+               ], columns
+               )
+               tweets_df = tweets_df.append(se, ignore_index=True)  # 5
+       except Exception as e:
+           print(e)
+   tweets_df["created_at"] = pd.to_datetime(tweets_df["created_at"])  # 6
+   return tweets_df
+
 
 app.run(host="localhost")
