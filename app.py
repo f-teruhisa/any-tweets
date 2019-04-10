@@ -82,4 +82,8 @@ def get_grouped_df(tweets_df):
    ).sort_values(by="created_at", ascending=False)
    return grouped_df
 
+def get_sorted_df(tweets_df):
+   sorted_df = tweets_df.sort_values(by="retweets", ascending=False)
+   return sorted_df
+
 app.run(host="localhost")
