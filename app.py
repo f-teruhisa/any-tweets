@@ -76,4 +76,10 @@ def get_profile(user_id):
    }
    return profile
 
+
+def get_grouped_df(tweets_df):
+   grouped_df = tweets_df.groupby(tweets_df.created_at.dt.date).sum(
+   ).sort_values(by="created_at", ascending=False)
+   return grouped_df
+
 app.run(host="localhost")
