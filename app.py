@@ -28,12 +28,20 @@ columns = [
     "retweets"
 ]
 
-@app.route('/', methods = ["GET" , "POST"])
+@app.route('/', methods=["GET", "POST"])
 def index():
    if request.method == 'POST':
-       # Get name = "user_id" on form
        user_id = request.form['user_id']
-       return render_template('index.html', user_id = user_id)
+       tweets_df = get_tweets_df(user_id)
+       grouped_df = get_grouped_df(tweets_df)
+       sorted_df = get_sorted_df(tweets_df)
+       return render_template(
+           'index.html',
+           profile=get_profile(user_id),
+           tweets_df=tweets_df,
+           grouped_df=grouped_df,
+           sorted_df=sorted_df
+       )
    else:
        return render_template('index.html')
 
