@@ -47,11 +47,11 @@ def index():
 
 # Gettting Tweets data(type of DataFrame[pandas])
 def get_tweets_df(user_id):
-   tweets_df = pd.DataFrame(columns=columns)  # 1
-   for tweet in tweepy.Cursor(api.user_timeline, screen_name=user_id, exclude_replies=True).items():  # 2
+   tweets_df = pd.DataFrame(columns=columns)
+   for tweet in tweepy.Cursor(api.user_timeline, screen_name=user_id, exclude_replies=True).items():
        try:
-           if not "RT @" in tweet.text:  # 3
-               se = pd.Series([  # 4
+           if not "RT @" in tweet.text: # exclude ReTweet & Quote Tweet
+               se = pd.Series([
                    tweet.id,
                    tweet.created_at,
                    tweet.text.replace('\n', ''),
@@ -59,11 +59,21 @@ def get_tweets_df(user_id):
                    tweet.retweet_count
                ], columns
                )
-               tweets_df = tweets_df.append(se, ignore_index=True)  # 5
+               tweets_df = tweets_df.append(se, ignore_index=True)
        except Exception as e:
            print(e)
-   tweets_df["created_at"] = pd.to_datetime(tweets_df["created_at"])  # 6
+   tweets_df["created_at"] = pd.to_datetime(tweets_df["created_at"])
    return tweets_df
 
+
+def get_profile(user_id):
+   user = api.get_user(screen_name=user_id)
+   profile = {
+       "id": user.id,
+       "user_id": user_id,
+       "image": user.profile_image_url,
+       "description": user.description
+   }
+   return profile
 
 app.run(host="localhost")
