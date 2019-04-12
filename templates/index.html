@@ -33,6 +33,11 @@ div{
 <body>
 <div class="container">
  <div class="row">
+    <div class="col-md-4">
+      </div>
+      <div class= "col-md-8">
+      </div>
+     </div>
    <div class="col-md-12">
     <h1><a href="/">Toptweets</a></h1>
     <p>Input Twitter ID</p>
@@ -60,15 +65,15 @@ div{
  <div class="row">
    <!-- プロフィール -->
    <div class="col-md-4">
-   {% if profile %}
-     <div class="white-container">
-       <div>
-         <img src="{{profile.image}}" width="100px">
-         <a href="https://twitter.com/{{profile.user_id}}">@{{profile.user_id}}</a>
-       </div>
-       <div>{{profile.description}}</div>
-     </div>
-   {% endif %}
+      {% if profile %} <!-- #1 -->
+        <div class="white-container">
+          <div>
+            <img src="{{profile.image}}" width="100px">  <!-- #2 -->
+            <a href="https://twitter.com/{{profile.user_id}}">@{{profile.user_id}}</a>   <!-- #3 -->
+          </div>
+          <div>{{profile.description}}</div>  <!-- #4 -->
+        </div>
+      {% endif %}
    {% if profile %}
      <div class="white-container">
        <div>
