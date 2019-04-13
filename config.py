@@ -1,7 +1,7 @@
 # Twitter API config status
 CONFIG = {
-    "CONSUMER_KEY": "",
-    "CONSUMER_SECRET": "",
-    "ACCESS_TOKEN": "",
-    "ACCESS_SECRET": ""
+    "CONSUMER_KEY": "fE5yGAcVQYDYawypsuGOS1cLf",
+    "CONSUMER_SECRET": "JwRVtLoj1hPOtkfl04xwUewwji9AmW843K9TdlJPBGMA6doIC9",
+    "ACCESS_TOKEN": "3283800870-qR8kGi42zxpSngQaKCwfTdC2IVmvaHFGqn7ISBv",
+    "ACCESS_SECRET": "hSIdP1t0cjN2aeUQTlW4EXLlp8wu5lGN8pvtKLGGpsmo7"
 }
