@@ -46,7 +46,7 @@
      </div>
    </div>
  <div class="row">
-   <!-- プロフィール -->
+   <!-- Profile -->
    <div class="col-md-4">
       {% if profile %} <!-- #1 -->
         <div class="white-container">
@@ -73,21 +73,21 @@
    </div>
    <div class= "col-md-8">
    {% if profile %}
-   <div>もっともリツイート・いいねされたツイート</div>
+   <div>Most ReTweet & favorited Tweet</div>
    {% for index, row in sorted_df.iterrows() %}
      <div class="white-container">
        <div>{{row["created_at"]}}</div>
        <div id="tweet-text">{{row["text"]}}</div>
        <div>
          <span><i class="far fa-heart"></i>  {{row["fav"]}}</span> <span><i class="fas fa-retweet"></i>  {{row["retweets"]}}</span>
-         <a class="pull-right">ツイートを見る</a>
+         <a class="pull-right">Show tweet</a>
        </div>
      </div>
    {% endfor %}
    {% endif %}
  </div>
 </div>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script>
  {% if profile %}
