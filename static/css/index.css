@@ -1,0 +1,16 @@
+body{
+    background-color:#e6ecf0;
+   }
+   div{
+    line-height: 1.2;
+   }
+   .white-container{
+    border-bottom: 1px solid #e6ecf0;
+    padding:20px;
+    background-color:#ffffff;
+   }
+   #tweet-text{
+    padding:20px;
+    margin-bottom:10px;
+    line-height: 1.2;
+   }
