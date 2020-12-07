@@ -10,5 +10,5 @@ setuptools==41.0.1
 tweepy==3.7.0
 virtualenv==16.4.3
 virtualenv-clone==0.5.3
-Werkzeug==0.15.2
+Werkzeug==0.15.3
 wheel==0.33.1
